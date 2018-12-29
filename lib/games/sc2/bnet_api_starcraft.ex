@@ -37,18 +37,18 @@ defmodule BnetApi.Request.Starcraft do
 		make_call("/sc2/legacy/profile/#{region_id}/#{realm}/#{user_id}/matches", region)
 	end
 
-	def get_league(%{"region" => region, "league_id" => league_id, "queue_id" => queue_id, "team_type" => team_type}) do
+	def get_league(%{"region" => region, "season_id" => season_id, "league_id" => league_id, "queue_id" => queue_id, "team_type" => team_type}) do
 		make_call("/data/sc2/league/#{season_id}/#{queue_id}/#{team_type}/#{league_id}", region)
 	end
 
-	def ref_team_types() {
+	def ref_team_types() do
 		%{
 			arranged: 0,
 			random: 1
 		}
-	}
+	end
 
-	def ref_queue_types() {
+	def ref_queue_types() do
 		%{
 			ones: 201,
 			twoes: 202,
@@ -56,8 +56,8 @@ defmodule BnetApi.Request.Starcraft do
 			fours: 204,
 			archon: 206
 		}
-	}
-	def ref_league_ids() {
+	end
+	def ref_league_ids() do
 		%{
 			bronze: 0,
 			silver: 1,
@@ -67,6 +67,6 @@ defmodule BnetApi.Request.Starcraft do
 			master: 5,
 			grandmaster: 6
 		}
-	}
+	end
 
 end
