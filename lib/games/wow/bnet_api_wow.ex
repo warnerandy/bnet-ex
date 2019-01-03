@@ -8,7 +8,7 @@ defmodule BnetApi.Request.Wow do
 	end
 
 	def get_auction_data_status(%{"region" => region, "realm" => realm}) do
-		make_call('/wow/auction/data/:realm', region)
+		make_call('/wow/auction/data/#{realm}', region)
 	end
 
 	def get_all_bosses(%{"region" => region}) do
@@ -46,7 +46,7 @@ defmodule BnetApi.Request.Wow do
 	end
 
 	def get_item(%{"region" => region, "item_id" => item_id}) do
-		make_call("/wow/item/${item_id}", region)
+		make_call("/wow/item/#{item_id}", region)
 	end
 
 	def get_item_set(%{"region" => region, "set_id" => set_id}) do
@@ -66,11 +66,11 @@ defmodule BnetApi.Request.Wow do
 	end
 
 	def get_pet_species(%{"region" => region, "species_id" => species_id}) do
-		make_call("/wow/pet/species/species_id", region)
+		make_call("/wow/pet/species/#{species_id}", region)
 	end
 
 	def get_pet_stats(%{"region" => region, "species_id" => species_id}) do
-		make_call("/wow/pet/stats/species_id", region)
+		make_call("/wow/pet/stats/#{species_id}", region)
 	end
 
 	def get_pvp_leaderboard(%{"region" => region, "bracket" => bracket}) do 

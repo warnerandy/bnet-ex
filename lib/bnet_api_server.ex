@@ -6,12 +6,12 @@ defmodule BnetApi.Server do
   """
 
   @doc """
-  Hello world.
+  This is just a passthrough for the api it returns a JSON payload for given the response:
+  there are three paths (one for each api)
 
-  ## Examples
-
-      iex> BnetApi.hello()
-      :world
+  /wow
+  /d3
+  /starcraft
 
   """
 
