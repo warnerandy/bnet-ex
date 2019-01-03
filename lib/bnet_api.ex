@@ -3,7 +3,7 @@ defmodule BnetApi do
 	require Logger
 
 	def start(_type, _args) do
-		Logger.info "Starting Application"
+		Logger.info "Starting BNet API Application"
 		import Supervisor.Spec, warn: false
 
 		children = [

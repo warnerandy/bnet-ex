@@ -1,6 +1,7 @@
 # This file is responsible for configuring your application
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
+use System
 
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
@@ -35,5 +36,5 @@ config :bnet_api,
 	redirect_uri: "/authorize/oauth2/callback",
 	client_id: System.get_env("BNET_CLIENT_ID"),
 	client_secret: System.get_env("BNET_SECRET"),
-	cert_path: "/Users/andywarner/lab/bnet_api/config/server.csr",
-	key_path: "/Users/andywarner/lab/bnet_api/config/server.key"
+	cert_path: Sysetem.get_env("BNET_CERT_PATH"),
+	key_path: Sysetem.get_env("BNET_KEY_PATH")
