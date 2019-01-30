@@ -17,10 +17,13 @@ defmodule BnetApi do
 		
 		import Supervisor.Spec, warn: false
 
-		children = [
-			{BnetApi.Server, [%{}]},
+		child_arr = [
 			{BnetApi.Request, %{access_token: %{}}}
 		]
+		children = case (Application.get_env(:bnet_api, :no_server)) do
+			true -> child_arr
+			_ -> Enum.reverse([ {BnetApi.Server, [%{}]} | child_arr])
+		end
 
 	opts = [strategy: :one_for_one, name: BnetApi.Supervisor]
 	Supervisor.start_link(children, opts)
