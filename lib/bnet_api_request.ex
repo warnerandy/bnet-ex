@@ -49,7 +49,7 @@ defmodule BnetApi.Request do
 			{Tesla.Middleware.Headers, [
 				{"Authorization", "Bearer #{get_token(state, region)}"}
 			]},
-			Tesla.Middleware.JSON,
+			# Tesla.Middleware.JSON,
 			{Tesla.Middleware.BaseUrl, "https://#{region}.#{Application.get_env(:bnet_api, :api_uri)}"}
 		]
 	end
@@ -69,7 +69,6 @@ defmodule BnetApi.Request do
 		end
 		response = new_state
 		|> make_access_token_call(path, region)
-
 		{:reply, response, new_state}
 	end
 
